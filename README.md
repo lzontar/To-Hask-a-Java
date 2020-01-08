@@ -13,6 +13,9 @@ As mentioned above, compiler is based on [Haskell](https://www.haskell.org/) pro
 
 ## Project structure
 - **Main.hs** contains the main Haskell function which processes program's IO and connects other modules in a single file.
+- **ThajLexer.hs** is where program code is tokenized (i.e. split on multiple tokens, such as strings, Java punctuations, etc.).
+- **ThajParser.hs** does the main processing by building an Abstract Syntax Tree (AST) from tokens.
+- **ThajGenerator.hs** writes a Haskell program based on the AST that was created in parser.
 
 ## Using To-Hask-a-Java compiler
 1. We have to run the Glasgow Haskell Compiler: ``` $ ghci ```
@@ -29,6 +32,9 @@ Prelude> :l ./src/Main.hs
 *Main> thaj "<FILENAME>.java"
 ```
 5. We can now compile and execute our newly generated Haskell version of Java code from file *<FILENAME>.hs*. 
+
+**Be aware!** currently only programs without function interaction and with one statement in each function are supported. *To be repaired soon* :wink:  
+
 ## :sos: Wish to contribute?
 ### Environment setup
 1. Fork repository and pull the content
